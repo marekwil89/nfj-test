@@ -1,0 +1,74 @@
+<form [formGroup]="noticeForm" (ngSubmit)="onSubmit()">
+
+  <mat-card>
+    <mat-card-header>
+      <mat-card-title>Dodaj nowe ogłoszenie</mat-card-title>
+      <mat-card-subtitle>Sprawdź jakie to proste</mat-card-subtitle>
+    </mat-card-header>
+    <mat-card-content class="card-content-padding">
+      <mat-form-field class="form-group">
+        <input placeholder="Tytuł" matInput type="text" formControlName="title">
+
+        <mat-error *ngIf="title.invalid && (title.dirty || title.touched)">
+          <p *ngIf="title.errors.required">To pole jest <strong>wymagane</strong></p>
+        </mat-error>
+      </mat-form-field>
+
+      <mat-form-field class="form-group">
+        <input placeholder="Firma" matInput type="text" formControlName="company">
+
+        <mat-error *ngIf="company.invalid && (company.dirty || company.touched)">
+          <p *ngIf="company.errors.required">To pole jest <strong>wymagane</strong></p>
+        </mat-error>
+      </mat-form-field>
+
+      <mat-form-field class="form-group">
+        <input placeholder="Ulica" matInput type="text" formControlName="street">
+
+        <mat-error *ngIf="street.invalid && (street.dirty || street.touched)">
+          <p *ngIf="street.errors.required">To pole jest <strong>wymagane</strong></p>
+        </mat-error>
+      </mat-form-field>
+
+      <mat-form-field class="form-group">
+        <input placeholder="Miasto" matInput type="text" formControlName="city">
+
+        <mat-error *ngIf="city.invalid && (city.dirty || city.touched)">
+          <p *ngIf="city.errors.required">To pole jest <strong>wymagane</strong></p>
+        </mat-error>
+      </mat-form-field>
+
+      <mat-form-field class="form-group">
+        <input placeholder="Kod pocztowy" matInput type="text" formControlName="postalCode">
+
+        <mat-error *ngIf="postalCode.invalid && (postalCode.dirty || postalCode.touched)">
+          <p *ngIf="postalCode.errors.required">To pole jest <strong>wymagane</strong></p>
+          <p *ngIf="postalCode.errors.pattern">Proszę o wpisanie prawidłowego <strong>kodu pocztowego</strong></p>
+        </mat-error>
+      </mat-form-field>
+
+      <mat-form-field class="form-group">
+        <input placeholder="Widełki od" matInput type="number" formControlName="salaryMin">
+        <mat-error *ngIf="salaryMin.invalid && (salaryMin.dirty || salaryMin.touched)">
+          <p *ngIf="salaryMin.errors.required">To pole jest <strong>wymagane</strong></p>
+        </mat-error>
+      </mat-form-field>
+
+      <mat-form-field class="form-group">
+        <input placeholder="Widełki do" matInput type="number" formControlName="salaryMax">
+
+        <mat-error *ngIf="salaryMax.invalid && (salaryMax.dirty || salaryMax.touched)">
+          <p *ngIf="salaryMax.errors.required">To pole jest <strong>wymagane</strong></p>
+          <p *ngIf="salaryMax.errors.min">Za niska <strong>kwota</strong></p>
+          <p *ngIf="salaryMax.errors.salary">Za niska <strong>kwota</strong></p>
+        </mat-error>
+      </mat-form-field>
+    </mat-card-content>
+
+    <mat-card-actions>
+      <button mat-flat-button [disabled]="!noticeForm.valid" type="submit">Dodaj</button>
+    </mat-card-actions>
+  </mat-card>
+</form>
+
+

@@ -1,0 +1,16 @@
+<mat-grid-list gutterSize="20px" *ngIf="list" cols="2" rowHeight="2:1">
+  <mat-grid-tile *ngFor="let item of list; let i = index">
+    <article class="nfj-card">
+      <h3><small>{{i+1}}</small> {{item.title}}</h3>
+      <mat-divider></mat-divider>
+      <mat-list>
+        <mat-list-item>Firma &nbsp; <strong>{{item.company}}</strong></mat-list-item>
+        <mat-list-item>Ulica &nbsp; <strong>{{item.street}}</strong></mat-list-item>
+        <mat-list-item>Miasto &nbsp; <strong>{{item.city}}</strong></mat-list-item>
+        <mat-list-item>Kod pocztowy &nbsp; <strong>{{item.postalCode}}</strong></mat-list-item>
+        <mat-list-item>Widełki od &nbsp; <strong>{{item.salaryMin}} PLN</strong></mat-list-item>
+        <mat-list-item>Widełki do &nbsp; <strong>{{item.salaryMax}} PLN</strong></mat-list-item>
+      </mat-list>
+    </article>
+  </mat-grid-tile>
+</mat-grid-list>
